@@ -84,6 +84,19 @@ public class Gui implements ActionListener {
         c.gridy = 0;
         window.add(infoPanel, c);
 
+        // -- Repaint button
+        JButton repaintButton =  new JButton();
+        repaintButton.setText("Repaint");
+        repaintButton.setActionCommand("repaint");
+        repaintButton.addActionListener(this);
+        c = new GridBagConstraints();
+        c.weightx = 0.5;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridy = 1;
+        c.insets = new Insets(5, 0, 5, 0);
+        infoPanel.add(repaintButton, c);
+
         // -- Input panel
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new BorderLayout());
@@ -214,6 +227,9 @@ public class Gui implements ActionListener {
                 break;
             case "save":
                 saveCase();
+                break;
+            case "repaint":
+                updatePanels();
             default:
         }
     }
