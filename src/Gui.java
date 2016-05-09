@@ -55,7 +55,7 @@ public class Gui implements ActionListener {
             public void mouseClicked(MouseEvent e) {
                 Double x = 1.0 * e.getX();
                 Double y = 1.0 * e.getY();
-                int size = problemPanel.getWidth() + 6;
+                int size = problemPanel.getWidth() - 6;
                 float xFloat = (float) (x / size);
                 float yFloat = (float) (y / size);
                 int pointID = 1;
