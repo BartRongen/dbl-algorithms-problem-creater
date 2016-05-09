@@ -55,21 +55,23 @@ public class Gui implements ActionListener {
             public void mouseClicked(MouseEvent e) {
                 Double x = 1.0 * e.getX();
                 Double y = 1.0 * e.getY();
-                int size = problemPanel.getWidth() - 6;
+                int size = problemPanel.getWidth() + 6;
                 float xFloat = (float) (x / size);
                 float yFloat = (float) (y / size);
                 int pointID = 1;
 
-                if (input != null) {
-                    pointID = input.getNumPoints() + 1;
-                } else {
-                    inputText.append("reconstruct single \n");
-                    inputText.append("0 number of sample points \n");
-                }
+                if (xFloat >= 0 && yFloat >= 0 && xFloat <= 1 && yFloat <= 1) {
+                    if (input != null) {
+                        pointID = input.getNumPoints() + 1;
+                    } else {
+                        inputText.append("reconstruct single \n");
+                        inputText.append("0 number of sample points \n");
+                    }
 
-                inputText.append(pointID + " " + xFloat + " " + yFloat + "\n");
-                inputText.setText(inputText.getText().replaceAll(pointID - 1 + " number of sample points", pointID + " number of sample points"));
-                updatePanels();
+                    inputText.append(pointID + " " + xFloat + " " + yFloat + "\n");
+                    inputText.setText(inputText.getText().replaceAll(pointID - 1 + " number of sample points", pointID + " number of sample points"));
+                    updatePanels();
+                }
             }
         });
 
